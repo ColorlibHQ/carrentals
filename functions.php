@@ -68,6 +68,11 @@ if( ! defined( 'CARRENTALS_DIR_PATH_WIDGET' ) ) {
 	define( 'CARRENTALS_DIR_PATH_WIDGET', CARRENTALS_DIR_PATH_INC.'widgets/' );
 }
 
+//Widgets Folder Directory
+if( ! defined( 'CARRENTALS_DIR_PATH_COMPANION' ) ) {
+	define( 'CARRENTALS_DIR_PATH_COMPANION', CARRENTALS_DIR_PATH_INC.'carrentals-companion/' );
+}
+
 
 /**
  * Include File
@@ -87,6 +92,7 @@ require_once( CARRENTALS_DIR_PATH_CLASSES . 'Class-Enqueue.php' );
 require_once( CARRENTALS_DIR_PATH_CLASSES . 'Class-Config.php' );
 require_once( CARRENTALS_DIR_PATH_HOOKS . 'hooks.php' );
 require_once( CARRENTALS_DIR_PATH_HOOKS . 'hooks-functions.php' );
+require_once( CARRENTALS_DIR_PATH_COMPANION . 'carrentals-companion.php' );
 require_once( CARRENTALS_DIR_PATH_INC . 'class-epsilon-dashboard-autoloader.php' );
 require_once( CARRENTALS_DIR_PATH_INC . 'class-epsilon-init-dashboard.php' );
 
