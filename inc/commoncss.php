@@ -38,6 +38,7 @@ function carrentals_common_custom_css() {
 		$themecolor  	   = esc_attr( carrentals_opt( 'carrentals_themecolor' ) );
 
         $customcss ="
+            ::selection,
 			.genric-btn.primary,
 			.genric-btn.primary-border:hover,
 			.default-switch input + label,
