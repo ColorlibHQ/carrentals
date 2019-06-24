@@ -3918,3 +3918,7 @@ a img.aligncenter {
 .ui-datepicker-header {
   margin-bottom: 12px;
 }
+
+.header-tagline{
+  color: #fff;
+}

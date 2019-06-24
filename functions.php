@@ -74,6 +74,15 @@ if( ! defined( 'CARRENTALS_DIR_PATH_COMPANION' ) ) {
 }
 
 
+
+// Admin Enqueue script
+function carrentals_admin_script(){
+    wp_enqueue_style( 'carrentals-admin', get_template_directory_uri().'/assets/css/carrentals_admin.css', false, '1.0.0' );
+    wp_enqueue_script( 'carrentals_admin', get_template_directory_uri().'/assets/js/carrentals_admin.js', false, '1.0.0' );
+}
+add_action( 'admin_enqueue_scripts', 'carrentals_admin_script' );
+
+
 /**
  * Include File
  *
