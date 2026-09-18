@@ -93,7 +93,7 @@ function carrental_booking_settings_form() {
         <div class="clearfix"></div>
         <?php 
         
-        $carmodel = unserialize( get_option( 'carmodel' ) );
+        $carmodel = unserialize( get_option( 'carmodel' ), array( 'allowed_classes' => false ) );
 
         if( is_array( $carmodel ) ):
 
@@ -160,7 +160,7 @@ function carrental_booking_settings_form() {
 
         <?php 
         
-        $pickup = unserialize( get_option( 'pickup' ) );
+        $pickup = unserialize( get_option( 'pickup' ), array( 'allowed_classes' => false ) );
 
         if( is_array( $pickup ) && count( $pickup ) > 0 ):
 
@@ -227,7 +227,7 @@ function carrental_booking_settings_form() {
 
         <?php 
         
-        $dropoff = unserialize( get_option( 'dropoff' ) );
+        $dropoff = unserialize( get_option( 'dropoff' ), array( 'allowed_classes' => false ) );
 
         if( is_array( $dropoff ) ):
 

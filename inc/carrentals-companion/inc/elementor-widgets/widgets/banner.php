@@ -350,7 +350,7 @@ class CarRentals_Banner extends Widget_Base {
                                     <select name="pickupNumber">
                                         <option value="" disabled selected hidden><?php esc_html_e( 'Pickup', 'carrentals' ) ?></option>
                                         <?php 
-                                        $pickup = unserialize( get_option( 'pickup' ) );
+                                        $pickup = unserialize( get_option( 'pickup' ), array( 'allowed_classes' => false ) );
 
                                         foreach( $pickup as $val ) {
                                             echo '<option value="' .esc_attr( $val ). '">' . esc_html( $val ) . '</option>';
@@ -375,7 +375,7 @@ class CarRentals_Banner extends Widget_Base {
                                     <select name="dropNumber">
                                         <option value="" disabled selected hidden><?php esc_html_e( 'Drop off', 'carrentals' ) ?></option>
                                         <?php 
-                                        $dropoff = unserialize( get_option( 'dropoff' ) );
+                                        $dropoff = unserialize( get_option( 'dropoff' ), array( 'allowed_classes' => false ) );
 
                                         foreach( $dropoff as $val ) {
                                             echo '<option value="' .esc_attr( $val ). '">' . esc_html( $val ) . '</option>';
