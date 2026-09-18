@@ -102,8 +102,6 @@ require_once( CARRENTALS_DIR_PATH_CLASSES . 'Class-Config.php' );
 require_once( CARRENTALS_DIR_PATH_HOOKS . 'hooks.php' );
 require_once( CARRENTALS_DIR_PATH_HOOKS . 'hooks-functions.php' );
 require_once( CARRENTALS_DIR_PATH_COMPANION . 'carrentals-companion.php' );
-require_once( CARRENTALS_DIR_PATH_INC . 'class-epsilon-dashboard-autoloader.php' );
-require_once( CARRENTALS_DIR_PATH_INC . 'class-epsilon-init-dashboard.php' );
 
 /**
  * Instantiate CarRentals object
@@ -174,3 +172,11 @@ if ( ! function_exists( 'car_rentals_modern_supports' ) ) {
 	}
 	add_action( 'after_setup_theme', 'car_rentals_modern_supports', 20 );
 }
+
+/**
+ * The theme's Customizer controls.
+ *
+ * Replaces the Epsilon framework: same fields and stored values,
+ * built on core's Customizer API.
+ */
+require_once get_template_directory() . '/inc/customizer/colorlib-customizer/colorlib-customizer.php';
