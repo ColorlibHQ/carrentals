@@ -104,7 +104,7 @@ function carrental_booking_settings_form() {
         <div class="items" data-group="carmodel">
             <!-- Repeater Content -->
             <div class="item-content">
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="inputEmail" class="col-lg-2 control-label"><?php esc_html_e( 'Car Model', 'carrentals' ); ?></label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" value="<?php echo $val; ?>" id="inputName" placeholder="Name" data-name="name">
@@ -127,7 +127,7 @@ function carrental_booking_settings_form() {
         <div class="items" data-group="carmodel">
             <!-- Repeater Content -->
             <div class="item-content">
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="inputEmail" class="col-lg-2 control-label"><?php esc_html_e( 'Car Model', 'carrentals' ); ?></label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" id="inputName" placeholder="Name" data-name="name">
@@ -170,7 +170,7 @@ function carrental_booking_settings_form() {
         <div class="items" data-group="pickup">
             <!-- Repeater Content -->
             <div class="item-content">
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="inputEmail" class="col-lg-2 control-label"><?php esc_html_e( 'Pickup', 'carrentals' ); ?></label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" value="<?php echo $val; ?>" id="inputName" placeholder="Name" data-name="name">
@@ -192,7 +192,7 @@ function carrental_booking_settings_form() {
         <div class="items" data-group="pickup">
             <!-- Repeater Content -->
             <div class="item-content">
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="inputEmail" class="col-lg-2 control-label"><?php esc_html_e( 'Pickup', 'carrentals' ); ?></label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" id="inputName" placeholder="Name" data-name="name">
@@ -238,7 +238,7 @@ function carrental_booking_settings_form() {
         <div class="items" data-group="dropoff">
             <!-- Repeater Content -->
             <div class="item-content">
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="inputEmail" class="col-lg-2 control-label"><?php esc_html_e( 'Drop Off', 'carrentals' ); ?></label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" value="<?php echo $val; ?>" id="inputName" placeholder="Name" data-name="name">
@@ -261,7 +261,7 @@ function carrental_booking_settings_form() {
         <div class="items" data-group="dropoff">
             <!-- Repeater Content -->
             <div class="item-content">
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="inputEmail" class="col-lg-2 control-label"><?php esc_html_e( 'Drop Off', 'carrentals' ); ?></label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" id="inputName" placeholder="Name" data-name="name">
@@ -336,7 +336,7 @@ function carrental_booking_lists() {
 
 
     if( $carmodel ) {
-        echo '<li style="padding: 8px;background-color:#f8f8f8;">'.esc_html( $carmodel ).'<span style="margin-left: 30px;">'.esc_html( $pikdate ).'</span><span style="float:right;"><button class="view-booking" data-target="modal-'.esc_attr( $list->ID ).'" >'.esc_html__( 'View', 'carrentals' ).'</button></span>'.carrental_booking_admin_modal( $list->ID ).'</li>';
+        echo '<li style="padding: 8px;background-color:#f8f8f8;">'.esc_html( $carmodel ).'<span style="margin-left: 30px;">'.esc_html( $pikdate ).'</span><span style="float:right;"><button class="view-booking" data-bs-target="modal-'.esc_attr( $list->ID ).'" >'.esc_html__( 'View', 'carrentals' ).'</button></span>'.carrental_booking_admin_modal( $list->ID ).'</li>';
     }
         
     }
@@ -348,7 +348,7 @@ function carrental_booking_lists() {
 
             $( '.view-booking' ).on( 'click', function() {
 
-                var modal = $(this).attr( 'data-target' );
+                var modal = $(this).attr( 'data-bs-target' );
 
                 $('.' + modal ).show();
 

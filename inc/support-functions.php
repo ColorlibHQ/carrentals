@@ -42,7 +42,7 @@ function carrentals_post_tags() {
 	$getTags = '';
 	
 	if( $tags ) {
-        $getTags .= '<li><i class="fa fa-tag"></i></li>';
+        $getTags .= '<li><i class="fa-solid fa-tag"></i></li>';
 		foreach( $tags as $tag ){
 			$getTags .= '<li><a href="' . esc_url( get_tag_link( absint( $tag->term_id ) ) ) . '">' . esc_html( $tag->name ) . '</a></li>';
 		}

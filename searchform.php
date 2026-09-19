@@ -16,6 +16,6 @@ if( ! defined( 'ABSPATH' ) ) {
 <div class="search-widget">
     <form class="example" action="<?php echo esc_url( site_url( '/' ) ); ?>" style="margin:auto;max-width:301px">
       <input type="text" placeholder="<?php esc_html_e( 'Search Posts', 'carrentals' ); ?>" name="s">
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <button type="submit"><i class="fa-solid fa-search"></i></button>
     </form>                             
 </div>

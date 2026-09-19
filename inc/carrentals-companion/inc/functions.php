@@ -115,10 +115,10 @@ function carrentals_contact7_form_content( $template, $prop ) {
         $template =
             '<div class="form-area " id="myForm">
             <div class="row">   
-            <div class="col-lg-6 form-group">
+            <div class="col-lg-6 mb-3">
             [text* am-name class:common-input class:mb-20 class:form-control placeholder "Enter your name"][email* am-email class:common-input class:mb-20 class:form-control placeholder "Enter email address"][text* am-subject class:common-input class:mb-20 class:form-control placeholder "Enter your subject"]
             </div>
-            <div class="col-lg-6 form-group">
+            <div class="col-lg-6 mb-3">
             [textarea* am-message class:common-textarea class:form-control placeholder "Messege"]
             <button type="submit" class="primary-btn mt-20" style="float: right;">Send Message</button>                                  
             </div>

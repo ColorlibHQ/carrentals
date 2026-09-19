@@ -337,20 +337,20 @@ class CarRentals_Team_Member extends Widget_Base {
                             <?php 
                             // Facebook Social Icon
                             if( !empty( $team['fburl']['url'] ) ){
-                                echo '<a href="'.esc_url( $team['fburl']['url'] ).'"><i class="fa fa-facebook" aria-hidden="true"></i></a>';
+                                echo '<a href="'.esc_url( $team['fburl']['url'] ).'"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>';
                             }
                             // Twitter Social Icon
                             if( !empty( $team['twiturl']['url'] ) ){
-                                echo '<a href="'.esc_url( $team['twiturl']['url'] ).'"><i class="fa fa-twitter" aria-hidden="true"></i></a>';
+                                echo '<a href="'.esc_url( $team['twiturl']['url'] ).'"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>';
                             }
                             // Pinterest Social Icon
                             if( !empty( $team['pinturl']['url'] ) ){
 
-                                echo '<a href="'.esc_url( $team['pinturl']['url'] ).'"><i class="fa fa-pinterest" aria-hidden="true"></i></a>';
+                                echo '<a href="'.esc_url( $team['pinturl']['url'] ).'"><i class="fa-brands fa-pinterest" aria-hidden="true"></i></a>';
                             }
                             // Dribbble Social Icon
                             if( !empty( $team['driburl']['url'] ) ){
-                                echo '<a href="'.esc_url( $team['driburl']['url'] ).'"><i class="fa fa-dribbble" aria-hidden="true"></i></a>';
+                                echo '<a href="'.esc_url( $team['driburl']['url'] ).'"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>';
                             }
                             ?>
                             

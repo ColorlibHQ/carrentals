@@ -33,10 +33,10 @@ function carrentals_social_sharing_buttons( $ulClass = '' ,$tagLine = '' ) {
 	$content = '';
     $content  .= '<ul class="'.esc_attr( $ulClass ).'">';
     $content .= $tagLine;
-    $content .= '<li><a href="' . esc_url( $twitterURL ) . '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
-    $content .= '<li><a href="' . esc_url( $facebookURL ) . '" target="_blank"><i class="fa fa-facebook"></i></a></li>';
-    $content .= '<li><a href="' . esc_url( $googleURL ) . '" target="_blank"><i class="fa fa-google-plus"></i></a></li>';
-    $content .= '<li><a href="' . esc_url( $linkedin ) . '" target="_blank"><i class="fa fa-linkedin"></i></a></li>';
+    $content .= '<li><a href="' . esc_url( $twitterURL ) . '" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>';
+    $content .= '<li><a href="' . esc_url( $facebookURL ) . '" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>';
+    $content .= '<li><a href="' . esc_url( $googleURL ) . '" target="_blank"><i class="fa-brands fa-google-plus"></i></a></li>';
+    $content .= '<li><a href="' . esc_url( $linkedin ) . '" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>';
     $content .= '</ul>';
     
     return $content;

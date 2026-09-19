@@ -330,7 +330,7 @@ class CarRentals_Banner extends Widget_Base {
                         ?>                        
                     </h4>
                     <form class="form" action="#" method="post" role="form" autocomplete="off">
-                        <div class="form-group">
+                        <div class="mb-3">
                             <div class="default-select" id="default-select"">
                                 <select name="carmodel">
                                     <option value="" disabled selected hidden><?php esc_html_e( 'Select Your Car', 'carrentals' ) ?></option>
@@ -344,7 +344,7 @@ class CarRentals_Banner extends Widget_Base {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="mb-3 row">
                             <div class="col-md-6 wrap-left">
                                 <div class="default-select" id="default-select"">
                                     <select name="pickupNumber">
@@ -369,7 +369,7 @@ class CarRentals_Banner extends Widget_Base {
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="mb-3 row">
                             <div class="col-md-6 wrap-left">
                                 <div class="default-select" id="default-select">
                                     <select name="dropNumber">
@@ -398,7 +398,7 @@ class CarRentals_Banner extends Widget_Base {
                             <input class="form-control txt-field" type="email" name="userEmail" placeholder="<?php esc_html_e( 'Email address', 'carrentals' ) ?>">
                             <input class="form-control txt-field" type="tel" name="userPhone" placeholder="<?php esc_html_e( 'Phone number', 'carrentals' ) ?>">
                         </div>
-                        <div class="form-group row">
+                        <div class="mb-3 row">
                             <?php wp_nonce_field( 'request_nonce_action', 'request_submit_nonce_check' ); ?>
                             <div class="col-md-12">
                                 <button type="submit" name="booking_submit" class="btn btn-default btn-lg btn-block text-center text-uppercase"><?php esc_html_e( 'Confirm Car Booking', 'carrentals' ) ?></button>

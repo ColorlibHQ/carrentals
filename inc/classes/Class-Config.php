@@ -145,83 +145,76 @@ final class CarRentals {
 		$scripts = array(
 			'style' => array(
 				array(
-					'handler'		=> 'google-font',
+					'handler'		=> 'car-rentals-theme-google-font',
 					'file' 			=> $this->google_font(),
 				),
 				array(
-					'handler'		=> 'bootstrap',
+					'handler'		=> 'car-rentals-theme-bootstrap',
 					'file' 			=> $cssPath.'bootstrap.css',
 					'dependency' 	=> array(),
-					'version' 		=> '4.0.0',
+					'version' 		=> '5.3.8-4',
 				),
 				array(
-					'handler'		=> 'font-awesome',
+					'handler'		=> 'car-rentals-theme-font-awesome',
 					'file' 			=> $cssPath.'font-awesome.min.css',
 					'dependency' 	=> array(),
-					'version' 		=> '4.7.0',
+					'version' 		=> '7.3.1-1',
 				),
 				array(
-					'handler'		=> 'linearicons',
+					'handler'		=> 'car-rentals-theme-linearicons',
 					'file' 			=> $cssPath.'linearicons.css',
 					'dependency' 	=> array(),
 					'version' 		=> '1.0',
 				),
 				array(
-					'handler'		=> 'nice-select',
+					'handler'		=> 'car-rentals-theme-nice-select',
 					'file' 			=> $cssPath.'nice-select.css',
 					'dependency' 	=> array(),
 					'version' 		=> $this->carrentals_version,
 				),
 				array(
-					'handler'		=> 'carrentals-main',
+					'handler'		=> 'car-rentals-theme-carrentals-main',
 					'file' 			=> $cssPath.'main.css',
 					'dependency' 	=> array(),
 					'version' 		=> $this->carrentals_version,
 				),
 				array(
-					'handler'		=> 'carrentals-style',
+					'handler'		=> 'car-rentals-theme-carrentals-style',
 					'file' 			=> get_stylesheet_uri(),
 				),
 			),
 			'scripts' => array(
 
 				array(
-					'handler'		=> 'bootstrap',
+					'handler'		=> 'car-rentals-theme-bootstrap',
 					'file' 			=> $jsPath.'bootstrap.min.js',
 					'dependency' 	=> array( 'jquery' ),
-					'version' 		=> '4.0.0',
+					'version' 		=> '5.3.8-4',
 					'in_footer' 	=> true
 				),
 				array(
-					'handler'		=> 'popper',
-					'file' 			=> $jsPath.'popper.min.js',
-					'dependency' 	=> array( 'jquery' ),
-					'version' 		=> '4.0.0',
-					'in_footer' 	=> true
-				),
-				array(
-					'handler'		=> 'jquery-nice-select',
+					'handler'		=> 'car-rentals-theme-jquery-nice-select',
 					'file' 			=> $jsPath.'jquery.nice-select.min.js',
 					'dependency' 	=> array( 'jquery' ),
 					'version' 		=> '1.0',
 					'in_footer' 	=> true
 				),
 				array(
-					'handler'		=> 'jquery-sticky',
+					'handler'		=> 'car-rentals-theme-jquery-sticky',
 					'file' 			=> $jsPath.'jquery.sticky.js',
 					'dependency' 	=> array( 'jquery' ),
 					'version' 		=> '1.0.0',
 					'in_footer' 	=> true
 				),
 				array(
-					'handler'		=> 'superfish',
+					'handler'		=> 'car-rentals-theme-superfish',
 					'file' 			=> $jsPath.'superfish.min.js',
 					'dependency' 	=> array( 'jquery' ),
 					'version' 		=> '1.7.9',
 					'in_footer' 	=> true
 				),
 				array(
-					'handler'		=> 'carrentals-main',
+					'handler'		=> 'car-rentals-theme-carrentals-main',
 					'file' 			=> $jsPath.'main.js',
 					'dependency' 	=> array( 'jquery', 'imagesloaded' ),
 					'version' 		=> $this->carrentals_version,

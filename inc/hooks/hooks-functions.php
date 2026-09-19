@@ -64,7 +64,7 @@ if( ! function_exists( 'carrentals_back_to_top' ) ) {
 			?>
 			<div class="btn-back-to-top bg0-hov" id="myBtn">
 				<span class="symbol-btn-back-to-top">
-					<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+					<i class="fa-solid fa-angle-double-up" aria-hidden="true"></i>
 				</span>
 			</div>
 			<?php
@@ -250,7 +250,7 @@ if( ! function_exists( 'carrentals_blog_posts_excerpt_cb' ) ) {
 		</div>	
 		<a href="<?php the_permalink(); ?>" class="continue-read-btn s-text20">
 			<?php esc_html_e( 'Continue Reading', 'carrentals' ); ?>
-			<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
+			<i class="fa-solid fa-long-arrow-right m-l-8" aria-hidden="true"></i>
 		</a>			
 		<?php
 
