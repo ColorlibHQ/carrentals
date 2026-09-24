@@ -152,7 +152,7 @@ final class CarRentals {
 					'handler'		=> 'car-rentals-theme-bootstrap',
 					'file' 			=> $cssPath.'bootstrap.css',
 					'dependency' 	=> array(),
-					'version' 		=> '5.3.8-4',
+					'version' 		=> '5.3.8-5',
 				),
 				array(
 					'handler'		=> 'car-rentals-theme-font-awesome',
