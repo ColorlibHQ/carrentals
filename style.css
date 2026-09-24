@@ -6,7 +6,10 @@ Author URI: http://colorlib.com/wp/
 Description: CarRentals is a modern event WordPress Theme. Its stylish design and beautiful 
 typography makes it an ideal theme for event and any kind of site. It is fully responsive so It will always look great and crisp on any devices and screen sizes. It's built with clean 
 and organized code which makes it very easy to customize.
-Version: 1.0
+Version: 1.0
+Requires at least: 6.6
+Tested up to: 7.1
+Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom-header, custom-menu, featured-image-header, featured-images, full-width-template, translation-ready
