@@ -14,6 +14,7 @@ function carrentals_sl_enqueue_scripts() {
 
 	wp_localize_script( 'carrentals-post-likes', 'simpleLikes', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'like'    => esc_html__( 'Like', 'carrentals' ),
 		'unlike'  => esc_html__( 'Unlike', 'carrentals' )
 	) );
 }
