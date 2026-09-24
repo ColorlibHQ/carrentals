@@ -34,10 +34,7 @@
 
     //  Counter Js 
     if( $('.facts-area').length ) {
-        $('.counter').counterUp({
-            delay: 10,
-            time: 1000
-        });
+        ColorlibUI.counter('.counter', { time: 1000 });
     }
 
 })(jQuery);

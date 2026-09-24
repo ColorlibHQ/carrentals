@@ -13,15 +13,12 @@
   $(".fitscreen").css("height", fitscreen);
 
      if(document.getElementById("default-select")){
-          $('select').niceSelect();
+          ColorlibUI.enhanceSelects('select');
     };
 
     //  Counter Js 
      if(document.getElementById("facts-area")){
-          $('.counter').counterUp({
-          delay: 10,
-          time: 1000
-       });
+          ColorlibUI.counter('.counter', { time: 1000 });
      };
 
 

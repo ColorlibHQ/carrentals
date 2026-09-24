@@ -193,13 +193,6 @@ final class CarRentals {
 					'in_footer' 	=> true
 				),
 				array(
-					'handler'		=> 'car-rentals-theme-jquery-nice-select',
-					'file' 			=> $jsPath.'jquery.nice-select.min.js',
-					'dependency' 	=> array( 'jquery' ),
-					'version' 		=> '1.0',
-					'in_footer' 	=> true
-				),
-				array(
 					'handler'		=> 'car-rentals-theme-jquery-sticky',
 					'file' 			=> $jsPath.'jquery.sticky.js',
 					'dependency' 	=> array( 'jquery' ),
@@ -214,10 +207,17 @@ final class CarRentals {
 					'in_footer' 	=> true
 				),
 				array(
+					'handler'		=> 'carrentals-ui-js',
+					'file' 			=> $jsPath.'colorlib-ui.js',
+					'dependency' 	=> array(),
+					'version' 		=> '2.1.1',
+					'in_footer' 	=> true
+				),
+				array(
 					'handler'		=> 'car-rentals-theme-carrentals-main',
 					'file' 			=> $jsPath.'main.js',
-					'dependency' 	=> array( 'jquery', 'imagesloaded' ),
-					'version' 		=> $this->carrentals_version,
+					'dependency' 	=> array( 'jquery', 'imagesloaded', 'carrentals-ui-js' ),
+					'version' 		=> $this->carrentals_version . '-s1',
 					'in_footer' 	=> true
 				),
 			)
