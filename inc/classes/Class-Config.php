@@ -188,36 +188,22 @@ final class CarRentals {
 				array(
 					'handler'		=> 'car-rentals-theme-bootstrap',
 					'file' 			=> $jsPath.'bootstrap.min.js',
-					'dependency' 	=> array( 'jquery' ),
+					'dependency' 	=> array(),
 					'version' 		=> '5.3.8-4',
 					'in_footer' 	=> true
 				),
 				array(
-					'handler'		=> 'car-rentals-theme-jquery-sticky',
-					'file' 			=> $jsPath.'jquery.sticky.js',
-					'dependency' 	=> array( 'jquery' ),
-					'version' 		=> '1.0.0',
-					'in_footer' 	=> true
-				),
-				array(
-					'handler'		=> 'car-rentals-theme-superfish',
-					'file' 			=> $jsPath.'superfish.min.js',
-					'dependency' 	=> array( 'jquery' ),
-					'version' 		=> '1.7.9',
-					'in_footer' 	=> true
-				),
-				array(
 					'handler'		=> 'carrentals-ui-js',
-					'file' 			=> $jsPath.'colorlib-ui.js',
+					'file' 			=> $jsPath . ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? 'colorlib-ui.js' : 'colorlib-ui.min.js' ),
 					'dependency' 	=> array(),
-					'version' 		=> '2.1.1',
+					'version' 		=> '3.0.0',
 					'in_footer' 	=> true
 				),
 				array(
 					'handler'		=> 'car-rentals-theme-carrentals-main',
 					'file' 			=> $jsPath.'main.js',
-					'dependency' 	=> array( 'jquery', 'imagesloaded', 'carrentals-ui-js' ),
-					'version' 		=> $this->carrentals_version . '-s1',
+					'dependency' 	=> array( 'imagesloaded', 'carrentals-ui-js' ),
+					'version' 		=> $this->carrentals_version . '-s2',
 					'in_footer' 	=> true
 				),
 			)
@@ -318,7 +304,7 @@ final class CarRentals {
 		$had_elementor = get_option( 'carrentals_had_elementor' );
 
 		if( $had_elementor == 'no' && self::check_elementor_preview_page() ) {
-			wp_enqueue_script( 'carrentals-elementor-notice', CARRENTALS_DIR_JS_URI.'carrentals-elementor-notice.js', array('jquery'), '1.0', true );
+			wp_enqueue_script( 'carrentals-elementor-notice', CARRENTALS_DIR_JS_URI.'carrentals-elementor-notice.js', array( 'carrentals-ui-js' ), '1.0-s2', true );
 			wp_localize_script(
 				'carrentals-elementor-notice',
 				'carrentalsElementorNotice',

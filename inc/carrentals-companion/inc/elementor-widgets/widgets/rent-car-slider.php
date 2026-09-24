@@ -368,17 +368,24 @@ class CarRentals_Rent_Car_Slider extends Widget_Base {
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
         ?>
         <script>
-        ( function( $ ){
-            
-            // Exibition widget owlCarousel
-            $('.active-model-carusel').owlCarousel({
-                items:1,
-                loop:true,
-                margin:30,
-                dots: true
-            });
-
-        })(jQuery);
+        (function () {
+            function run() {
+                var UI = window.ColorlibUI;
+                if (!UI) return;
+                // Exibition widget owlCarousel
+                UI.owl('.active-model-carusel', {
+                    items:1,
+                    loop:true,
+                    margin:30,
+                    dots: true
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
         </script>
         <?php 
         }

@@ -1,149 +1,187 @@
+/**
+ * CarRentals front-end behaviour, without jQuery: full-height banner rows,
+ * the Superfish drop-down menu, the mobile menu built from a copy of the main
+ * menu, smooth scrolling to on-page anchors and the header's scrolled state.
+ */
+(function () {
+  'use strict';
 
-(function( $ ){
-  "use strict";
+  var UI = window.ColorlibUI;
+  if (!UI) return;
 
-  var window_width   = $(window).width(),
-  window_height      = window.innerHeight,
-  header_height      = $(".default-header").height(),
-  header_height_static = $(".site-header.static").outerHeight(),
-  fitscreen        = window_height - header_height;
-
-
-  $(".fullscreen").css("height", window_height)
-  $(".fitscreen").css("height", fitscreen);
-
-     if(document.getElementById("default-select")){
-          ColorlibUI.enhanceSelects('select');
-    };
-
-    //  Counter Js 
-     if(document.getElementById("facts-area")){
-          ColorlibUI.counter('.counter', { time: 1000 });
-     };
-
-
-
-
-  // Initiate superfish on nav menu
-  $('.nav-menu').superfish({
-    animation: {
-      opacity: 'show'
-    },
-    speed: 400
-  });
-  
-
-  // Mobile Navigation
-  if ($('#nav-menu-container').length) {
-    var $mobile_nav = $('#nav-menu-container').clone().prop({
-      id: 'mobile-nav'
-    });
-    $mobile_nav.find('> ul').attr({
-      'class': '',
-      'id': ''
-    });
-    $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>');
-    $('body').append('<div id="mobile-body-overly"></div>');
-    $('#mobile-nav').find('.menu-has-children').prepend('<i class="lnr lnr-chevron-down"></i>');
-
-    $(document).on('click', '.menu-has-children i', function(e) {
-      $(this).next().toggleClass('menu-item-active');
-      $(this).nextAll('ul').eq(0).slideToggle();
-      $(this).toggleClass("lnr-chevron-up lnr-chevron-down");
-    });
-
-    $(document).on('click', '#mobile-nav-toggle', function(e) {
-      $('body').toggleClass('mobile-nav-active');
-      $('#mobile-nav-toggle i').toggleClass('lnr-cross lnr-menu');
-      $('#mobile-body-overly').toggle();
-    });
-
-    $(document).click(function(e) {
-      var container = $("#mobile-nav, #mobile-nav-toggle");
-      if (!container.is(e.target) && container.has(e.target).length === 0) {
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('#mobile-nav-toggle i').toggleClass('lnr-cross lnr-menu');
-          $('#mobile-body-overly').fadeOut();
-        }
-      }
-    });
-  } else if ($("#mobile-nav, #mobile-nav-toggle").length) {
-    $("#mobile-nav, #mobile-nav-toggle").hide();
+  // jQuery's .height(): the element's content box.
+  function contentHeight(el) {
+    var style = window.getComputedStyle(el);
+    return el.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
   }
 
-  // Smooth scroll for the menu and links with .scrollto classes
-  $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      if (target.length) {
-        var top_space = 0;
+  function setHeight(selector, px) {
+    UI.toElements(selector).forEach(function (el) {
+      el.style.height = px + 'px';
+    });
+  }
 
-        if ($('#header').length) {
-          top_space = $('#header').outerHeight();
+  function toggleClasses(selector, a, b) {
+    UI.toElements(selector).forEach(function (el) {
+      el.classList.toggle(a);
+      el.classList.toggle(b);
+    });
+  }
 
-          if( ! $('#header').hasClass('header-fixed') ) {
-            top_space = top_space;
-          }
-        }
-
-        $('html, body').animate({
-          scrollTop: target.offset().top - top_space
-        }, 1500, 'easeInOutExpo');
-
-        if ($(this).parents('.nav-menu').length) {
-          $('.nav-menu .menu-active').removeClass('menu-active');
-          $(this).closest('li').addClass('menu-active');
-        }
-
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('#mobile-nav-toggle i').toggleClass('lnr-times lnr-bars');
-          $('#mobile-body-overly').fadeOut();
-        }
-        return false;
-      }
+  // jQuery's .toggle(): hide a shown element, show a hidden one.
+  function toggleDisplay(el) {
+    if (window.getComputedStyle(el).display === 'none') {
+      el.style.display = '';
+      if (window.getComputedStyle(el).display === 'none') el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
     }
+  }
+
+  // The element a #hash points at. jQuery threw on a hash that is not a valid
+  // selector, and on one whose element does not exist; this returns null.
+  function hashTarget(hash) {
+    if (!hash || hash === '#') return null;
+    try {
+      return document.querySelector(hash);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  UI.ready(function () {
+    var windowHeight = window.innerHeight;
+    var header = document.querySelector('.default-header');
+
+    setHeight('.fullscreen', windowHeight);
+    if (header) setHeight('.fitscreen', windowHeight - contentHeight(header));
   });
 
+  if (document.getElementById('default-select')) {
+    UI.enhanceSelects('select');
+  }
 
-    $(document).ready(function() {
+  //  Counter Js
+  if (document.getElementById('facts-area')) {
+    UI.counter('.counter', { time: 1000 });
+  }
 
-    $('html, body').hide();
-
-        if (window.location.hash) {
-
-        setTimeout(function() {
-
-        $('html, body').scrollTop(0).show();
-
-        $('html, body').animate({
-
-        scrollTop: $(window.location.hash).offset().top-62
-
-        }, 1000)
-
-        }, 0);
-
-        }
-
-        else {
-
-        $('html, body').show();
-
-        }
-
+  UI.ready(function () {
+    // Initiate superfish on nav menu
+    UI.superfish('.nav-menu', {
+      animation: {
+        opacity: 'show'
+      },
+      speed: 400
     });
-  
+
+    // Mobile Navigation: a copy of the menu as Superfish left it.
+    var container = document.getElementById('nav-menu-container');
+    if (!container) {
+      ['mobile-nav', 'mobile-nav-toggle'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      return;
+    }
+
+    var mobileNav = container.cloneNode(true);
+    mobileNav.id = 'mobile-nav';
+    Array.prototype.forEach.call(mobileNav.children, function (child) {
+      if (child.tagName === 'UL') {
+        child.setAttribute('class', '');
+        child.setAttribute('id', '');
+      }
+    });
+    document.body.appendChild(mobileNav);
+    document.body.insertAdjacentHTML('afterbegin', '<button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>');
+    document.body.insertAdjacentHTML('beforeend', '<div id="mobile-body-overly"></div>');
+    UI.toElements(mobileNav.querySelectorAll('.menu-has-children')).forEach(function (li) {
+      li.insertAdjacentHTML('afterbegin', '<i class="lnr lnr-chevron-down"></i>');
+    });
+
+    var toggle = document.getElementById('mobile-nav-toggle');
+    var overlay = document.getElementById('mobile-body-overly');
+
+    // Sub-menu arrows open and close their sub-menu.
+    document.addEventListener('click', function (e) {
+      var icon = e.target.closest && e.target.closest('.menu-has-children i');
+      if (!icon) return;
+      if (icon.nextElementSibling) icon.nextElementSibling.classList.toggle('menu-item-active');
+      var sub = icon.nextElementSibling;
+      while (sub && sub.tagName !== 'UL') sub = sub.nextElementSibling;
+      if (sub) UI.slide(sub, 'toggle');
+      icon.classList.toggle('lnr-chevron-up');
+      icon.classList.toggle('lnr-chevron-down');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target)) return;
+      document.body.classList.toggle('mobile-nav-active');
+      toggleClasses('#mobile-nav-toggle i', 'lnr-cross', 'lnr-menu');
+      toggleDisplay(overlay);
+    });
+
+    // A click anywhere else closes the menu.
+    document.addEventListener('click', function (e) {
+      if (mobileNav.contains(e.target) || toggle.contains(e.target)) return;
+      if (document.body.classList.contains('mobile-nav-active')) {
+        document.body.classList.remove('mobile-nav-active');
+        toggleClasses('#mobile-nav-toggle i', 'lnr-cross', 'lnr-menu');
+        UI.fade(overlay, 'out');
+      }
+    });
+  });
+
+  // Smooth scroll for the menu and links with .scrollto classes
+  UI.ready(function () {
+    UI.toElements('.nav-menu a, #mobile-nav a, .scrollto').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        if (!link.hash) return;
+        if (location.pathname.replace(/^\//, '') !== link.pathname.replace(/^\//, '') || location.hostname !== link.hostname) return;
+        var target = hashTarget(link.hash);
+        if (!target) return;
+
+        var header = document.getElementById('header');
+        var topSpace = header ? header.getBoundingClientRect().height : 0;
+        UI.scrollToY(UI.offset(target).top - topSpace, 1500);
+
+        if (link.parentElement && link.parentElement.closest('.nav-menu')) {
+          UI.toElements('.nav-menu .menu-active').forEach(function (el) {
+            el.classList.remove('menu-active');
+          });
+          var item = link.closest('li');
+          if (item) item.classList.add('menu-active');
+        }
+
+        if (document.body.classList.contains('mobile-nav-active')) {
+          document.body.classList.remove('mobile-nav-active');
+          toggleClasses('#mobile-nav-toggle i', 'lnr-cross', 'lnr-menu');
+          UI.fade('#mobile-body-overly', 'out');
+        }
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
+  });
+
+  // Arriving with a #hash: the page is hidden for a tick, shown at the top,
+  // then scrolled smoothly to 62px above the target.
+  UI.ready(function () {
+    if (!window.location.hash) return;
+    var roots = [document.documentElement, document.body];
+    roots.forEach(function (el) { el.style.display = 'none'; });
+    setTimeout(function () {
+      window.scrollTo(0, 0);
+      roots.forEach(function (el) { el.style.display = ''; });
+      var target = hashTarget(window.location.hash);
+      if (target) UI.scrollToY(UI.offset(target).top - 62, 1000);
+    }, 0);
+  });
 
   // Header scroll class
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('#header').addClass('header-scrolled');
-    } else {
-      $('#header').removeClass('header-scrolled');
-    }
-  })
-
- })(jQuery);
+  window.addEventListener('scroll', function () {
+    var header = document.getElementById('header');
+    if (header) header.classList.toggle('header-scrolled', window.pageYOffset > 100);
+  }, { passive: true });
+}());

@@ -1,40 +1,46 @@
-(function ($) {
-    'use strict';
+/**
+ * CarRentals Elementor widgets, front end: the Mailchimp signup form, the
+ * about and car model carousels, the booking form's date fields, the gallery
+ * and the counters. No jQuery.
+ */
+(function () {
+  'use strict';
 
-    //  Mailchimp ajax
-    $('#mc_embed_signup').find('form').ajaxChimp();
+  var UI = window.ColorlibUI;
+  if (!UI) return;
 
-    // About widget owlCarousel
-    $('.active-about-carusel').owlCarousel({
-        items:1,
-        loop:true,
-        margin:30,
-        dots: true
-    });
+  //  Mailchimp ajax
+  UI.ajaxChimp('#mc_embed_signup form');
 
-    // Exibition widget owlCarousel
-    $('.active-model-carusel').owlCarousel({
-        items:1,
-        loop:true,
-        margin:30,
-        dots: true
-    });
-    // Datepicker
-    $( function() {
-        $( "#datepicker" ).datepicker();
-        $( "#datepicker2" ).datepicker();
-     });
+  // About widget owlCarousel
+  UI.owl('.active-about-carusel', {
+    items: 1,
+    loop: true,
+    margin: 30,
+    dots: true
+  });
 
-    //  Gallery
-    $("#grid-container").justifiedGallery({
-        rowHeight : 200,
-        captions : false,
-        margins : 30
-    });
+  // Exibition widget owlCarousel
+  UI.owl('.active-model-carusel', {
+    items: 1,
+    loop: true,
+    margin: 30,
+    dots: true
+  });
 
-    //  Counter Js 
-    if( $('.facts-area').length ) {
-        ColorlibUI.counter('.counter', { time: 1000 });
-    }
+  // Datepicker
+  UI.datepicker('#datepicker', { wrap: false });
+  UI.datepicker('#datepicker2', { wrap: false });
 
-})(jQuery);
+  //  Gallery
+  UI.justifiedGallery('#grid-container', {
+    rowHeight: 200,
+    captions: false,
+    margins: 30
+  });
+
+  //  Counter Js
+  if (document.querySelector('.facts-area')) {
+    UI.counter('.counter', { time: 1000 });
+  }
+}());

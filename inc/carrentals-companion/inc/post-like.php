@@ -10,7 +10,7 @@
 add_action( 'wp_enqueue_scripts', 'carrentals_sl_enqueue_scripts' );
 function carrentals_sl_enqueue_scripts() {
 
-	wp_enqueue_script( 'carrentals-post-likes', CARRENTALS_COMPANION_URL . 'js/post-likes.js', array( 'jquery' ), '0.5', false );
+	wp_enqueue_script( 'carrentals-post-likes', CARRENTALS_COMPANION_URL . 'js/post-likes.js', array( 'carrentals-ui-js' ), '0.5-s2', true );
 
 	wp_localize_script( 'carrentals-post-likes', 'simpleLikes', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),

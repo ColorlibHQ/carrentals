@@ -420,16 +420,30 @@ class CarRentals_Banner extends Widget_Base {
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
         ?>
         <script>
-        ( function( $ ){
-            // Exibition widget owlCarousel
-            var window_height    = window.innerHeight,
-            header_height        = $(".default-header").height(),
-            fitscreen            = window_height - header_height;
-
-
-            $(".fullscreen").css("height", window_height)
-            $(".fitscreen").css("height", fitscreen);
-        })(jQuery);
+        (function () {
+            function run() {
+                var UI = window.ColorlibUI;
+                if (!UI) return;
+                var windowHeight = window.innerHeight;
+                var header = document.querySelector('.default-header');
+                UI.toElements('.fullscreen').forEach(function (el) {
+                    el.style.height = windowHeight + 'px';
+                });
+                if (header) {
+                    // .fitscreen: the window height less the header's content height.
+                    var style = window.getComputedStyle(header);
+                    var fitscreen = windowHeight - (header.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom));
+                    UI.toElements('.fitscreen').forEach(function (el) {
+                        el.style.height = fitscreen + 'px';
+                    });
+                }
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
         </script>
         <?php 
         }
