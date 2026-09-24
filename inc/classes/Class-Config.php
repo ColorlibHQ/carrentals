@@ -176,7 +176,7 @@ final class CarRentals {
 					'handler'		=> 'car-rentals-theme-carrentals-main',
 					'file' 			=> $cssPath.'main.css',
 					'dependency' 	=> array(),
-					'version' 		=> $this->carrentals_version,
+					'version' 		=> $this->carrentals_version . '-s3',
 				),
 				array(
 					'handler'		=> 'car-rentals-theme-carrentals-style',
